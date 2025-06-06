@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCB南洋商業銀行 - 個人網銀</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="header">
+    <div class="logo-container">
+        <img src="logo.png" alt="NCB南洋商業銀行" class="logo">
+        <span class="bank-title"> | 個人網上銀行</span>
+    </div>
+
+    <div class="top-buttons">
+        <!-- 頁面縮放按鈕 -->
+        <div class="button-group">
+            <button class="top-button" id="zoomButton">
+                <img src="zoom.png" alt="放大">
+                頁面縮放 <span class="arrow-down"></span>
+            </button>
+            <div class="dropdown-menu" id="zoomMenu">
+                <div class="dropdown-item" data-scale="0.25">25%</div>
+                <div class="dropdown-item" data-scale="0.5">50%</div>
+                <div class="dropdown-item" data-scale="0.75">75%</div>
+                <div class="dropdown-item active" data-scale="1">100%</div>
+                <div class="dropdown-divider"></div>
+                <div class="dropdown-item" data-scale="1.25">125%</div>
+                <div class="dropdown-item" data-scale="1.5">150%</div>
+                <div class="dropdown-item" data-scale="2">200%</div>
+            </div>
+        </div>
+
+        <!-- 語言切換按鈕 -->
+        <div class="button-group">
+            <button class="top-button" id="langButton">
+                <img src="tw.png" alt="語言">
+                繁體中文 <span class="arrow-down"></span>
+            </button>
+            <div class="dropdown-menu" id="langMenu">
+                <div class="dropdown-item" data-lang="zh-Hant">
+                    <img src="tw.png" alt="繁體" class="dropdown-icon">
+                    繁體中文
+                </div>
+                <div class="dropdown-item" data-lang="zh-Hans">
+                    <img src="chin.png" alt="简体" class="dropdown-icon">
+                    简体中文
+                </div>
+                <div class="dropdown-item" data-lang="en">
+                    <img src="en.png" alt="English" class="dropdown-icon">
+                    English
+                </div>
+            </div>
+        </div>
+
+        <!-- 聯絡我們按鈕 -->
+        <button class="top-button">
+            <img src="connect.png" alt="聯絡">
+            聯絡我們
+        </button>
+
+        <!-- 問題反饋按鈕 -->
+        <button class="top-button">
+            <img src="question.png" alt="問題">
+            問題反饋
+        </button>
+    </div>
+</div>
+
+<div class="main-container">
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide active" style="background-image: url('1.png');"></div>
+            <div class="slide" style="background-image: url('2.png');"></div>
+            <div class="slide" style="background-image: url('3.png');"></div>
+        </div>
+
+        <div class="login-container">
+            <h2 class="login-subtitle">登入個人網上銀行</h2>
+
+            <form class="login-form" id="loginForm">
+                <div class="input-group">
+                    <img src="num.png" alt="用戶名" class="input-icon">
+                    <input type="text" class="input-field" placeholder="網上銀行號碼/用戶名稱" id="username" required>
+                </div>
+
+                <div class="input-group">
+                    <img src="secret.png" alt="密碼" class="input-icon">
+                    <input type="password" class="input-field" placeholder="登入密碼" id="password" required>
+                </div>
+
+                <div class="captcha-container">
+                    <div class="captcha-input-group">
+                        <div class="input-group captcha-input"> <!-- 添加專用class -->
+                            <img src="authen.png" alt="驗證碼" class="input-icon">
+                            <input type="text" class="input-field" placeholder="驗證碼" id="captcha-input" required>
+                        </div>
+                        <div class="captcha-image-wrapper" id="captchaImageWrapper">
+                            <img src="au_1.png" alt="驗證碼" class="captcha-image" id="captchaImage">
+                        </div>
+                    </div>
+                    <div id="length-error" class="error-message">驗證碼長度不足4位</div>
+                    <div id="captcha-error" class="error-message">驗證碼錯誤</div>
+                </div>
+
+                <div id="empty-error" class="empty-error">此格不能為空</div>
+
+                <div class="forgot-links">
+                    <a href="#" class="forgot-link">忘記網上銀行號碼/用戶名稱</a>
+                    <a href="#" class="forgot-link">忘記登入密碼</a>
+                </div>
+
+                <button type="submit" class="login-button">登入</button>
+            </form>
+        </div>
+
+        <div class="slider-controls">
+            <div class="slider-control active" data-index="0"></div>
+            <div class="slider-control" data-index="1"></div>
+            <div class="slider-control" data-index="2"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 底部廣告輪播 -->
+<div class="ad-container">
+    <div class="ad-slider" id="adSlider">
+        <div class="ad-slide" data-pdf="1.pdf">
+            <img src="sound.png" alt="提示" class="ad-icon">
+            <div>1. 由2025年6月20日起，本行貴金屬及外匯孖展買賣服務時間將會作出更改。按此瀏覽關於《關於2025年下半年及2026年貴金屬及外匯孖展買賣服務時間調整通知》。</div>
+        </div>
+        <div class="ad-slide" data-pdf="2.pdf">
+            <img src="sound.png" alt="提示" class="ad-icon">
+            <div>2. 本行現正分階段向持有本行於2024/9/20或之前發出的提款卡的客戶，安排免費更換全新的提款卡。按此瀏覽《關於更換全新提款卡的通知》。</div>
+        </div>
+        <div class="ad-slide" data-pdf="3.pdf">
+            <img src="sound.png" alt="提示" class="ad-icon">
+            <div>3. 由2025年5月1日起，本行貴金屬及外匯孖展買賣服務時間將會作出更改。按此瀏覽關於《關於2025年5月貴金屬及外匯孖展買賣服務時間的更改通知》。</div>
+        </div>
+        <div class="ad-slide" data-pdf="4.pdf">
+            <img src="sound.png" alt="提示" class="ad-icon">
+            <div>4. 近期網絡詐騙與個人資料竊取手法層出不窮，本行提醒，設定個人密碼及登入資料時，不宜使用容易讓人取得的個人資料，如電話號碼或出生日期等。如有需要，請即修改。</div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>

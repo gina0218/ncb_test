@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+}
+body {
+    background-color: #f5f5f5;
+    transition: all 0.3s ease;
+    padding-bottom: 70px;
+    overflow-x: hidden;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 100;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+.logo {
+    height: 40px;
+}
+.bank-title {
+    margin-left: 15px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+.top-buttons {
+    display: flex;
+    gap: 15px;
+    position: relative;
+}
+.top-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.3s;
+    position: relative;
+}
+.top-button:hover {
+    background-color: #f0f0f0;
+}
+.top-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+    display: none;
+    min-width: 150px;
+    padding: 10px 0;
+}
+.dropdown-menu.show {
+    display: block;
+}
+.dropdown-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+}
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+.dropdown-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 5px 0;
+}
+.dropdown-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+.main-container {
+    width: 100vw;
+    margin: 0;
+    position: relative;
+    height: calc(100vh - 120px);
+}
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.slide.active {
+    opacity: 1;
+}
+.slider-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 10;
+}
+.slider-control {
+    width: 60px;
+    height: 6px;
+    background-color: #2C2C94;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    opacity: 0.5;
+    border-radius: 3px;
+}
+.slider-control.active {
+    opacity: 1;
+}
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    margin-left: -150px;
+    transform: translateY(-50%);
+    width: 425px;
+    height: 425px;
+    padding: 33px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+.login-subtitle {
+    font-size: 23px;
+    margin-bottom: 15px;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    /*border: 1px solid #ddd;*/
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px; /* 新增圓角 */
+    height: 45px;
+    width: 100%;
+    transition: border 0.3s;
+}
+.input-group:focus-within {
+    border: 1px solid #2C2C94;
+    outline: none;
+}
+.input-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.input-field {
+    flex: 1;
+    border: none;
+    padding: 5px;
+    outline: none;
+    font-size: 14px;
+    height: 100%;
+}
+.input-field:focus {
+    outline: none;
+}
+/* 修改驗證碼容器 */
+.captcha-container {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* 調整驗證碼輸入組 */
+.captcha-input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px; /* 使用gap替代margin間距 */
+}
+
+/* 驗證碼輸入框調整，讓高度與圖片一致並垂直置中 */
+.input-group.captcha-input {
+    flex: 1;
+    min-width: 120px;
+    width: auto;
+    height: 45px; /* 與圖片高度一致 */
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+.input-group.captcha-input .input-field {
+    height: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 16px;
+}
+
+/* 驗證碼圖片容器 */
+.captcha-image-wrapper {
+    width: 120px;
+    height: 45px;
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.captcha-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px; /* 新增圓角 */
+}
+.error-message {
+    color: #d32f2f;
+    font-size: 12px;
+    margin-top: 3px;
+    display: none;
+}
+.empty-error {
+    display: none;
+    color: #d32f2f;
+    font-size: 12px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    background-color: #FFEBEE;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+}
+.forgot-links {
+    display: flex;
+    justify-content: flex-end; /* 靠右對齊 */
+    gap: 20px; /* 兩個連結間距 */
+    margin-bottom: 30px; /* 與登入鍵距離加大 */
+    font-size: 13px;
+}
+.forgot-link {
+    color: #0066cc;
+    text-decoration: none;
+}
+.login-button {
+    background-color: #2C2C94;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px; /* 原本是0，改成10px，讓按鈕與下方邊框距離縮小 */
+    border-radius: 3px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+.login-button:hover {
+    background-color: #1A1A7B;
+}
+.ad-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ddd;
+    overflow: hidden;
+    height: 70px;
+    z-index: 100;
+}
+.ad-slider {
+    display: flex;
+    flex-direction: column;
+    height: 400%;
+    transition: transform 0.5s ease;
+}
+.ad-slide {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    cursor: pointer;
+    color: #333;
+    position: relative;
+    font-size: 15px;
+}
+.ad-slide:hover {
+    background-color: #e0e0e0;
+}
+.ad-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+.arrow-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+    transition: transform 0.3s;
+}
+.top-button.active .arrow-down {
+    transform: rotate(180deg);
+}
